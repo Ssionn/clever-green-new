@@ -1,5 +1,3 @@
 <x-app-layout>
-    <h1 class="text-center">
-        Hello world!
-    </h1>
+    {{-- Implement Contact Page --}}
 </x-app-layout>

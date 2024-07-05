@@ -5,8 +5,8 @@
             <img src="{{ asset('images/logo.png') }}" class="h-auto w-auto" alt="CleverGreen"/>
         </a>
 
-        <div class="hidden sm:inline-flex">
-            <ul class="space-x-6 inline-flex">
+        <div class="hidden sm:inline-block">
+            <ul class="space-x-6 inline-flex items-center">
                 <x-landingpage.link.item
                     href="{{ route('landingpage.about') }}" :active="request()->routeIs('landingpage.about')">
                     {{ __('About Us') }}
@@ -15,6 +15,12 @@
                     href="{{ route('landingpage.contact') }}" :active="request()->routeIs('landingpage.contact')">
                     {{ __('Contact Us') }}
                 </x-landingpage.link.item>
+
+                <a href="#">
+                    <button type="button" class="px-4 py-2 bg-[#2A7F62] text-white rounded-lg align-middle">
+                        <span>{{ __('Dashboard') }}</span>
+                    </button>
+                </a>
             </ul>
         </div>
 
