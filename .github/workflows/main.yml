@@ -6,7 +6,6 @@ on:
     branches: [ production, development ]
 permissions:
   contents: write
-  pull-requests: write
 jobs:
   laravel-pint:
     runs-on: ubuntu-latest
@@ -76,12 +75,11 @@ jobs:
         }' > pint.json
     - name: Run Laravel Pint
       run: vendor/bin/pint --config pint.json
-    - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v5
+    - name: Commit changes
+      uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        commit-message: Apply Laravel Pint changes
-        title: Apply Laravel Pint changes
-        body: This PR applies changes made by Laravel Pint.
-        branch: laravel-pint-changes
-        base: ${{ github.head_ref || github.ref_name }}
+        commit_message: "Apply Laravel Pint changes"
+        branch: laravel-pint-changes-${{ github.sha }}
+        create_branch: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
