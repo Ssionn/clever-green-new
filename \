@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ request()->route()->getName() }}</title>
 
@@ -14,11 +15,7 @@
 </head>
 
 <body class="min-h-screen bg-gradient-to-b from-white to-[#2A7F62]">
-    <header>
-        <x-landingpage.navbar.navigation/>
-    </header>
-
-    <main class="flex flex-col max-w-screen-xl mx-auto p-6 sm:p-6 md:p-4 lg:p-2 xl:p-0">
+    <main>
         {{ $slot }}
     </main>
 </body>
