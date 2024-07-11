@@ -2,7 +2,7 @@
 
     <nav class="flex flex-row justify-between items-center max-w-screen-lg mx-auto h-auto sm:h-20 p-6 bg-gray-50 border-gray-200 border-t rounded-t-xl rounded-b-none sm:rounded-md">
         <a href="{{ route('landingpage.index') }}">
-            <img src="{{ asset('images/logo.png') }}" class="h-auto w-auto" alt="CleverGreen"/>
+            <img src="{{ asset('storage/images/logo.png') }}" class="h-auto w-auto" alt="CleverGreen"/>
         </a>
 
         <div class="hidden sm:inline-block">
@@ -11,16 +11,27 @@
                     href="{{ route('landingpage.about') }}" :active="request()->routeIs('landingpage.about')">
                     {{ __('About Us') }}
                 </x-landingpage.link.item>
+
                 <x-landingpage.link.item
                     href="{{ route('landingpage.contact') }}" :active="request()->routeIs('landingpage.contact')">
                     {{ __('Contact Us') }}
                 </x-landingpage.link.item>
 
-                <a href="#">
-                    <button type="button" class="px-4 py-2 bg-[#2A7F62] text-white rounded-lg align-middle">
-                        <span>{{ __('Dashboard') }}</span>
-                    </button>
-                </a>
+                @if(Route::has('login'))
+                    @auth
+                        <a href="#">
+                            <button type="button" class="px-4 py-2 bg-[#2A7F62] text-white rounded-lg align-middle">
+                                <span>{{ __('Dashboard') }}</span>
+                            </button>
+                        </a>
+                    @else
+                        <a href="{{ route('login') }}">
+                            <button type="button" class="px-4 py-2 bg-[#2A7F62] text-white rounded-lg align-middle">
+                                <span>{{ __('Login') }}</span>
+                            </button>
+                        </a>
+                    @endauth
+                @endif
             </ul>
         </div>
 
