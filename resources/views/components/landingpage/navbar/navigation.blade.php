@@ -63,7 +63,6 @@
                             {{ __('Dashboard') }}
                     </div>
                 </x-landingpage.link.item>
-
             </ul>
         </div>
     </nav>
