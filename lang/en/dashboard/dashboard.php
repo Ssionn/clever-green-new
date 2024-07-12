@@ -2,6 +2,6 @@
 
 return [
 
-    'heading' => "Welcome back, :user"
+    'heading' => 'Welcome back, :user',
 
 ];

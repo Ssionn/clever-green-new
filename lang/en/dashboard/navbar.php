@@ -8,6 +8,6 @@ return [
 
         'profile' => 'Profile',
 
-    ]
+    ],
 
 ];
