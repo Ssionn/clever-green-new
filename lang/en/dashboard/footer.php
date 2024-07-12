@@ -9,7 +9,7 @@ return [
 
             'laravel' => 'Laravel',
             'flowbite' => 'FlowBite',
-            'tailwindcss' => 'TailwindCSS'
+            'tailwindcss' => 'TailwindCSS',
         ],
 
         'follow_us' => [
@@ -22,10 +22,9 @@ return [
             'header' => 'Legal',
 
             'privacy_policy' => 'Privacy Policy',
-            'terms_and_service' => 'Terms & Service'
+            'terms_and_service' => 'Terms & Service',
         ],
 
     ],
-
 
 ];

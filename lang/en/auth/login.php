@@ -10,6 +10,6 @@ return [
 
     'form' => [
         'email' => 'Email',
-        'password' => 'Password'
+        'password' => 'Password',
     ],
 ];
