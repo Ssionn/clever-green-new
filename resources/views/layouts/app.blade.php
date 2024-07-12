@@ -22,9 +22,9 @@
         {{ $slot }}
     </main>
 
-    <footer>
+    <div>
         <x-landingpage.footer />
-    </footer>
+    </div>
 </body>
 
 </html>
