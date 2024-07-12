@@ -11,13 +11,21 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite([
+        'resources/css/app.css',
+        'resources/js/app.js',
+        'resources/js/dashboard.js'
+    ])
+
 </head>
 
-<body class="min-h-screen bg-gradient-to-b from-white to-[#2a7f62]">
+<body class="min-h-screen">
+    <x-dashboard.navbar.navigation />
+
     <main>
         {{ $slot }}
     </main>
+
 </body>
 
 </html>

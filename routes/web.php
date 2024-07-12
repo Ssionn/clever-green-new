@@ -10,7 +10,7 @@ Route::middleware(['web'])->group(function () {
     Route::get('/contact-us', [LandingPageController::class, 'contact'])->name('landingpage.contact');
 });
 
-Route::middleware(['web', 'auth'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::prefix('/dashboard')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('auth.dashboard');
     });

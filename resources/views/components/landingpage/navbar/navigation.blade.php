@@ -19,7 +19,7 @@
 
                 @if(Route::has('login'))
                     @auth
-                        <a href="#">
+                        <a href="{{ route('auth.dashboard') }}">
                             <button type="button" class="px-4 py-2 bg-[#2A7F62] text-white rounded-lg align-middle">
                                 <span>{{ __('Dashboard') }}</span>
                             </button>

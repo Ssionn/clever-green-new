@@ -15,12 +15,16 @@
 
 <body class="min-h-screen bg-gradient-to-b from-white to-[#2A7F62]">
     <header>
-        <x-landingpage.navbar.navigation/>
+        <x-landingpage.navbar.navigation />
     </header>
 
     <main class="flex flex-col max-w-screen-xl mx-auto p-6 sm:p-6 md:p-4 lg:p-2 xl:p-0">
         {{ $slot }}
     </main>
+
+    <footer>
+        <x-landingpage.footer />
+    </footer>
 </body>
 
 </html>
