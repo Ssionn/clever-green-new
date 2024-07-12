@@ -22,7 +22,7 @@
                         {{ __('auth/login.heading') }}
                     </h2>
 
-                    <form class="mt-8 space-y-4" method="POST" action="/login">
+                    <form class="mt-8 space-y-4" method="POST" action="{{ route('login') }}">
                         @csrf
                         <div>
                             <label class="text-gray-800 text-sm mb-2 block">
