@@ -4,7 +4,6 @@ use App\Http\Controllers\Auth\DashboardController;
 use App\Http\Controllers\Auth\User\UserController;
 use App\Http\Controllers\LandingPageController;
 use Illuminate\Support\Facades\Route;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::middleware(['web'])->group(function () {
     Route::get('/', [LandingPageController::class, 'index'])->name('landingpage.index');
