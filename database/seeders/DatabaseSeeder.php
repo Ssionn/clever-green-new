@@ -6,7 +6,9 @@ use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\PermissionRegistrar;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,33 +17,44 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-        $adminRole = Role::create(['name' => 'admin']);
-        $agentRole = Role::create(['name' => 'agent']);
-        $managerRole = Role::create(['name' => 'manager']);
+        app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
-        $admin = User::create([
-            'name' => 'Admin User',
-            'email' => 'admin@example.com',
+        Permission::create(['name' => 'visit users']);
+        Permission::create(['name' => 'create users']);
+        Permission::create(['name' => 'show users']);
+        Permission::create(['name' => 'access actions']);
+
+        $role = Role::create(['name' => 'agent']);
+        $role->givePermissionTo([]);
+
+        $role = Role::create(['name' => 'manager']);
+        $role->givePermissionTo(['visit users', 'show users']);
+
+        $role = Role::create(['name' => 'admin']);
+        $role->givePermissionTo(Permission::all());
+
+        $admin = User::factory()->create([
+            'name' => 'admin',
+            'email' => 'admin@admin.com',
             'password' => Hash::make('password'),
         ]);
 
-        $admin->assignRole($adminRole);
+        $admin->assignRole('admin');
 
-        $agent = User::create([
-            'name' => 'Agent User',
-            'email' => 'agent@example.com',
+        $manager = User::factory()->create([
+            'name' => 'manager',
+            'email' => 'manager@manager.com',
             'password' => Hash::make('password'),
         ]);
 
-        $agent->assignRole($agentRole);
+        $manager->assignRole('manager');
 
-        $manager = User::create([
-            'name' => 'Manager User',
-            'email' => 'manager@example.com',
+        $agent = User::factory()->create([
+            'name' => 'agent',
+            'email' => 'agent@agent.com',
             'password' => Hash::make('password'),
         ]);
 
-        $manager->assignRole($managerRole);
+        $agent->assignRole('agent');
     }
 }

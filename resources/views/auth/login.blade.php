@@ -29,7 +29,7 @@
                                 {{ __('auth/login.form.email') }}
                             </label>
                             <div class="relative flex items-center">
-                                <input name="email" id="email" type="email"required class="w-full text-gray-800 text-sm border border-gray-300 px-4 py-3 rounded-md outline-blue-600 placeholder:text-gray-400" placeholder="johndoe@example.com" />
+                                <input name="email" id="email" type="email" required class="w-full text-gray-800 text-sm border border-gray-300 px-4 py-3 rounded-md outline-blue-600 placeholder:text-gray-400" placeholder="johndoe@example.com" />
                             </div>
                         </div>
 

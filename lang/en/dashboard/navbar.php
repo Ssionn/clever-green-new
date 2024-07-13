@@ -6,6 +6,8 @@ return [
 
         'dashboard' => 'Dashboard',
 
+        'users' => 'Users',
+
         'profile' => 'Profile',
 
     ],
