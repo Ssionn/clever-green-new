@@ -7,9 +7,11 @@ return [
         'links' => [
 
             'dashboard' => 'Dashboard',
+          
             'users' => 'Users',
 
         ],
+      
     ],
 
 ];
