@@ -3,25 +3,26 @@
         All users
     </h1>
 
-    <div class="relative overflow-x-auto mt-4">
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+    <div class="relative overflow-x-auto mt-4 items-center">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-100">
                 <tr>
                     <th scope="col" class="px-6 py-3 rounded-s-lg">
-                        Name
+                        {{ __('dashboard/users/show-user.table.name') }}
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Email
+                        {{ __('dashboard/users/show-user.table.email') }}
+
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Role
+                        {{ __('dashboard/users/show-user.table.role') }}
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Verified Email
+                        {{ __('dashboard/users/show-user.table.verified_email') }}
                     </th>
                     @can('access actions')
                         <th scope="col" class="px-6 py-3 rounded-e-lg">
-                            Actions
+                            {{ __('dashboard/users/show-user.table.actions') }}
                         </th>
                     @endcan
                 </tr>
@@ -51,8 +52,8 @@
                                 @csrf
                                 @method('DELETE')
 
-                                <button type="submit">
-                                    X
+                                <button type="submit" class="px-4 py-2 bg-red-500 text-white rounded-md">
+                                    {{ __('dashboard/users/show-user.table.buttons.delete') }}
                                 </button>
                             </form>
                         </td>
