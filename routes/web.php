@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\DashboardController;
+use App\Http\Controllers\Auth\Setting\SettingsController;
 use App\Http\Controllers\Auth\User\UserController;
 use App\Http\Controllers\LandingPageController;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,11 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/', [UserController::class, 'index'])->name('auth.dashboard.users');
             Route::post('/', [UserController::class, 'store'])->name('auth.dashboard.users.store');
             Route::delete('/{id}', [UserController::class, 'destroy'])->name('auth.dashboard.users.destroy');
+        });
+
+        Route::prefix('/settings')->group(function () {
+            Route::get('/', [SettingsController::class, 'index'])->name('auth.dashboard.settings');
+            Route::post('/', [SettingsController::class, 'updatePassword'])->name('auth.dashboard.settings.updatePassword');
         });
     });
 });

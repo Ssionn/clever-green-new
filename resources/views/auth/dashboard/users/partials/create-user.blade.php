@@ -3,6 +3,8 @@
         Create User
     </h1>
 
+    @include('status.status')
+
     <div class="p-8">
         <form method="POST" action="{{ route('auth.dashboard.users.store') }}" class="space-y-4">
             @csrf

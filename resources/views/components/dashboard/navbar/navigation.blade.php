@@ -42,13 +42,23 @@
                 </svg>
                 <span class="ms-3">{{ __('dashboard/navbar.item.profile') }}</span>
             </button>
-            <div id="profileDropdown" class="hidden absolute bottom-full left-0 w-full bg-white border border-gray-200 rounded-lg shadow-lg">
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button type="submit" class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100">
-                        Logout
-                    </button>
-                </form>
+            <div id="profileDropdown" class="hidden absolute bottom-full left-0 w-full bg-white border border-gray-200 rounded-md shadow-lg">
+                {{-- Todo: Create dynamic link component for dropdown --}}
+
+                <div>
+                    <a href="{{ route('auth.dashboard.settings') }}" class="block w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100">
+                        {{ __('dashboard/navbar.item.profile_dropdown.settings') }}
+                    </a>
+                </div>
+
+                <div>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100">
+                            {{ __('dashboard/navbar.item.profile_dropdown.logout') }}
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

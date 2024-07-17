@@ -28,38 +28,38 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach($users as $user)
-                <tr class="bg-white dark:bg-gray-800">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $user->name }}
-                    </th>
-                    <td class="px-6 py-4">
-                        {{ $user->email }}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ $user->getRoleNames()->first() }}
-                    </td>
-                    <td class="px-6 py-4">
-                        @if($user->hasVerifiedEmail())
-                            ✅
-                        @else
-                            ❌
-                        @endif
-                    </td>
-                    @can('access actions')
+                @foreach($users as $user)
+                    <tr class="{{ $loop->even % 2 === 0 ? 'bg-white' : 'bg-gray-100' }}">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                            {{ $user->name }}
+                        </th>
                         <td class="px-6 py-4">
-                            <form action="{{ route('auth.dashboard.users.destroy', $user->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-
-                                <button type="submit" class="px-4 py-2 bg-red-500 text-white rounded-md">
-                                    {{ __('dashboard/users/show-user.table.buttons.delete') }}
-                                </button>
-                            </form>
+                            {{ $user->email }}
                         </td>
-                    @endcan
-                </tr>
-            @endforeach
+                        <td class="px-6 py-4">
+                            {{ $user->getRoleNames()->first() }}
+                        </td>
+                        <td class="px-6 py-4">
+                            @if($user->hasVerifiedEmail())
+                                ✅
+                            @else
+                                ❌
+                            @endif
+                        </td>
+                        @can('access actions')
+                            <td class="px-6 py-4">
+                                <form action="{{ route('auth.dashboard.users.destroy', $user->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit" class="px-4 py-2 bg-red-500 text-white rounded-md">
+                                        {{ __('dashboard/users/show-user.table.buttons.delete') }}
+                                    </button>
+                                </form>
+                            </td>
+                        @endcan
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

@@ -10,6 +10,14 @@ return [
 
         'profile' => 'Profile',
 
+        'profile_dropdown' => [
+
+            'settings' => 'Settings',
+
+            'logout' => 'Logout',
+
+        ],
+
     ],
 
 ];

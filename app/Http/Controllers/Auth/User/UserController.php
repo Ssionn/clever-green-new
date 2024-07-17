@@ -41,12 +41,12 @@ class UserController extends Controller
 
         $this->userRepository->createUser($name, $email, $roleId);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'User created.');
     }
 
     public function destroy(string $id): RedirectResponse
     {
-        $user = User::findById($id);
+        $user = User::find($id);
 
         $user->delete();
 

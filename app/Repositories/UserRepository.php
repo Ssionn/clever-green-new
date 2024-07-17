@@ -10,7 +10,9 @@ class UserRepository
 {
     public function getAllUsersExceptCurrent()
     {
-        return User::where('id', '!=', auth()->id())->get();
+        return User::whereNot('id', auth()->id())
+            ->orderBy('name')
+            ->get();
     }
 
     public function createUser($name, $email, $roleId): void
