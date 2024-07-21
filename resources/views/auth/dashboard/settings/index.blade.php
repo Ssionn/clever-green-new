@@ -12,8 +12,12 @@
             </div>
 
             <div class="flex flex-col justify-center">
-                <div class="w-full md:w-3/4 lg:w-2/3 p-8 rounded-md shadow-md border-t border-t-gray-100">
+                <div class="w-full md:w-3/4 lg:w-2/3 p-4 rounded-md shadow-md border-t border-t-gray-100">
                     @include('auth.dashboard.settings.partials.change-password')
+                </div>
+
+                <div class="w-full md:w-3/4 lg:w-2/3 p-4 rounded-md shadow-md border-t border-t-gray-100 mt-16">
+                    @include('auth.dashboard.settings.partials.verification')
                 </div>
             </div>
         </div>

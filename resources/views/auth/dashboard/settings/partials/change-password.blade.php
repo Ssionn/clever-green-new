@@ -43,7 +43,7 @@
             </div>
         @else
             <div class="opacity-50 pointer-events-none select-none cursor-not-allowed" aria-disabled="true">
-                <div>
+                <div class="mt-2">
                     <label for="email" class="text-gray-800 text-sm mb-2 block">
                         {{ __('dashboard/settings/change-password.form.inputs.email') }}
                     </label>
@@ -52,7 +52,7 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="mt-2">
                     <label for="current_password" class="text-gray-800 text-sm mb-2 block">
                         {{ __('dashboard/settings/change-password.form.inputs.current_password') }}
                     </label>
@@ -61,7 +61,7 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="mt-2">
                     <label for="password" class="text-gray-800 text-sm mb-2 block">
                         {{ __('dashboard/settings/change-password.form.inputs.new_password') }}
                     </label>
@@ -70,7 +70,7 @@
                     </div>
                 </div>
 
-                <div class="flex items-center w-full justify-end">
+                <div class="flex items-center w-full justify-end mt-2">
                     <button class="py-2 px-4 rounded-md bg-emerald-500" type="submit">
                         {{ __('dashboard/settings/change-password.form.buttons.save') }}
                     </button>

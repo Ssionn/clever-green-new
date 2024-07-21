@@ -4,4 +4,13 @@
             {{ __('dashboard/dashboard.navigated.links.dashboard') }}
         </h1>
     </div>
+
+    <div class="p-4 sm:ml-64">
+        <div class="container mx-auto max-w-5xl">
+            @if(! auth()->user()->hasVerifiedEmail())
+                @include('auth.verify-email')
+            @endif
+
+        </div>
+    </div>
 </x-dashboard-layout>

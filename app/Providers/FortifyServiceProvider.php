@@ -43,5 +43,6 @@ class FortifyServiceProvider extends ServiceProvider
 
         LoadFortify::login();
         LoadFortify::authenticate();
+        LoadFortify::verifyEmail();
     }
 }

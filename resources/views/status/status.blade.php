@@ -38,3 +38,9 @@
         <span class="block sm:inline text-blue-700">{{ session('info') }}</span>
     </div>
 @endif
+
+@if (session('status') == 'verification-link-sent')
+    <div class="border px-4 py-3 bg-emerald-100 rounded-lg text-emerald-green-500" role="alert">
+        A new email verification link has been emailed to you!
+    </div>
+@endif
