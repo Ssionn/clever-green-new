@@ -4,9 +4,13 @@ return [
 
     'navigated' => [
 
-        'dashboard_page' => 'Dashboard',
+        'links' => [
 
-        'users_page' => 'Users',
+            'dashboard' => 'Dashboard',
+
+            'users' => 'Users',
+
+        ],
 
     ],
 
