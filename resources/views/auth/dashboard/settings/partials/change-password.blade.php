@@ -4,10 +4,6 @@
     </h1>
 </div>
 
-<div class="mb-4">
-    @include('status.status')
-</div>
-
 <form method="POST" action="{{ route('auth.dashboard.settings.updatePassword') }}">
     @csrf
 
@@ -40,8 +36,8 @@
                 </div>
             </div>
 
-            <div>
-                <button type="submit">
+            <div class="flex items-center w-full justify-end">
+                <button class="py-2 px-4 rounded-md bg-emerald-500 text-white" type="submit">
                     {{ __('dashboard/settings/change-password.form.buttons.save') }}
                 </button>
             </div>
@@ -74,8 +70,8 @@
                     </div>
                 </div>
 
-                <div>
-                    <button type="submit">
+                <div class="flex items-center w-full justify-end">
+                    <button class="py-2 px-4 rounded-md bg-emerald-500" type="submit">
                         {{ __('dashboard/settings/change-password.form.buttons.save') }}
                     </button>
                 </div>

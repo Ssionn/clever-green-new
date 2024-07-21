@@ -7,6 +7,10 @@
 
     <div class="p-4 sm:ml-64">
         <div class="container mx-auto max-w-5xl">
+            <div class="mb-4 w-full md:w-3/4 lg:w-2/3">
+                @include('status.status')
+            </div>
+
             <div class="flex flex-col justify-center">
                 <div class="w-full md:w-3/4 lg:w-2/3 p-8 rounded-md shadow-md border-t border-t-gray-100">
                     @include('auth.dashboard.settings.partials.change-password')
