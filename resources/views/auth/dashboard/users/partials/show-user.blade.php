@@ -1,10 +1,10 @@
 <div class="p-4">
-    <h1 class="text-center font-semibold">
+    <h1 class="font-semibold text-center">
         All users
     </h1>
 
-    <div class="relative overflow-x-auto mt-4 items-center">
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+    <div class="relative items-center mt-4 overflow-x-auto">
+        <table class="w-full text-sm text-left text-gray-500 rtl:text-right">
             <thead class="text-xs text-gray-700 uppercase bg-gray-100">
                 <tr>
                     <th scope="col" class="px-6 py-3 rounded-s-lg">
@@ -52,7 +52,7 @@
                                     @csrf
                                     @method('DELETE')
 
-                                    <button type="submit" class="px-4 py-2 bg-red-500 text-white rounded-md">
+                                    <button type="submit" class="px-4 py-2 text-white bg-red-500 rounded-md">
                                         {{ __('dashboard/users/show-user.table.buttons.delete') }}
                                     </button>
                                 </form>
@@ -63,5 +63,4 @@
             </tbody>
         </table>
     </div>
-
 </div>

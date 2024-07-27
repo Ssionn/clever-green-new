@@ -8,7 +8,7 @@ return [
 
         'users' => 'Users',
 
-        'profile' => 'Profile',
+        'user' => ':user',
 
         'profile_dropdown' => [
 

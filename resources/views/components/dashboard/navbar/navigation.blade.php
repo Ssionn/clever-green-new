@@ -31,25 +31,25 @@
 
         <div class="relative">
             <button id="profileButton" class="flex items-center w-full p-2 text-gray-900 rounded-lg hover:bg-gray-200 group">
-                <svg class="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
-                </svg>
-                <span class="ms-3">{{ __('dashboard/navbar.item.profile') }}</span>
+                <x-icon-current-user class="h-6 w-6"/>
+                <span class="ms-3 pt-1">{{ ucfirst(__('dashboard/navbar.item.user', ['user' => auth()->user()->name])) }}</span>
             </button>
             <div id="profileDropdown" class="hidden absolute bottom-full left-0 w-full bg-white border border-gray-200 rounded-md shadow-lg">
                 {{-- Todo: Create dynamic link component for dropdown --}}
 
                 <div>
-                    <a href="{{ route('auth.dashboard.settings') }}" class="block w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100">
-                        {{ __('dashboard/navbar.item.profile_dropdown.settings') }}
+                    <a href="{{ route('auth.dashboard.settings') }}" class="inline-flex items-center w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100">
+                        <x-icon-settings class="h-6 w-6 mr-2"/>
+                        <span class="pt-1">{{ __('dashboard/navbar.item.profile_dropdown.settings') }}</span>
                     </a>
                 </div>
 
                 <div>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <button type="submit" class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100">
-                            {{ __('dashboard/navbar.item.profile_dropdown.logout') }}
+                        <button type="submit" class="inline-flex items-center w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100">
+                            <x-icon-logout class="h-6 w-6 mr-2"/>
+                            <span class="pt-1">{{ __('dashboard/navbar.item.profile_dropdown.logout') }}</span>
                         </button>
                     </form>
                 </div>
