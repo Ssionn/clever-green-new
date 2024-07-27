@@ -8,7 +8,15 @@ return [
 
         'users' => 'Users',
 
-        'profile' => 'Profile',
+        'user' => ':user',
+
+        'profile_dropdown' => [
+
+            'settings' => 'Settings',
+
+            'logout' => 'Logout',
+
+        ],
 
     ],
 

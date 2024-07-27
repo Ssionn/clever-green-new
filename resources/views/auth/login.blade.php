@@ -10,17 +10,12 @@
                     />
                 </a>
 
-                @if ($errors->any())
-                    <div class="border px-4 py-3 rounded-xl mb-4" role="alert">
-                        <strong class="font-bold text-red-500">{{ __('auth/login.error_handling.heading') }}</strong>
-                        <span class="block sm:inline text-red-500">{{ $errors->first() }}</span>
-                    </div>
-                @endif
-
                 <div class="p-8 rounded-2xl bg-white shadow">
-                    <h2 class="text-gray-800 text-center text-2xl font-bold">
+                    <h2 class="text-gray-800 text-center text-2xl font-bold mb-2">
                         {{ __('auth/login.heading') }}
                     </h2>
+
+                    @include('status.status')
 
                     <form class="mt-8 space-y-4" method="POST" action="{{ route('login') }}">
                         @csrf

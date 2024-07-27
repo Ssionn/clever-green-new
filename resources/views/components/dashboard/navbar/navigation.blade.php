@@ -14,21 +14,15 @@
             <ul class="space-y-2 font-medium">
                 <li>
                     <x-dashboard.link.navbar-link href="{{ route('auth.dashboard') }}" :active="request()->routeIs('auth.dashboard')">
-                        <svg class="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                            <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z"/>
-                            <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z"/>
-                        </svg>
-                        <span class="ms-3">{{ __('dashboard/navbar.item.dashboard') }}</span>
+                        <x-icon-dashboard class="h-6 w-6"/>
+                        <span class="ms-3 pt-[6px]">{{ __('dashboard/navbar.item.dashboard') }}</span>
                     </x-dashboard.link.navbar-link>
                 </li>
                 @can('visit users')
                     <li>
                         <x-dashboard.link.navbar-link href="{{ route('auth.dashboard.users') }}" :active="request()->routeIs('auth.dashboard.users')">
-                            <svg class="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                                <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z"/>
-                                <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z"/>
-                            </svg>
-                            <span class="ms-3">{{ __('dashboard/navbar.item.users') }}</span>
+                            <x-icon-user class="h-6 w-6"/>
+                            <span class="ms-3 pt-[6px]">{{ __('dashboard/navbar.item.users') }}</span>
                         </x-dashboard.link.navbar-link>
                     </li>
                 @endcan
@@ -37,18 +31,28 @@
 
         <div class="relative">
             <button id="profileButton" class="flex items-center w-full p-2 text-gray-900 rounded-lg hover:bg-gray-200 group">
-                <svg class="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
-                </svg>
-                <span class="ms-3">{{ __('dashboard/navbar.item.profile') }}</span>
+                <x-icon-current-user class="h-6 w-6"/>
+                <span class="ms-3 pt-1">{{ ucfirst(__('dashboard/navbar.item.user', ['user' => auth()->user()->name])) }}</span>
             </button>
-            <div id="profileDropdown" class="hidden absolute bottom-full left-0 w-full bg-white border border-gray-200 rounded-lg shadow-lg">
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button type="submit" class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100">
-                        Logout
-                    </button>
-                </form>
+            <div id="profileDropdown" class="hidden absolute bottom-full left-0 w-full bg-white border border-gray-200 rounded-md shadow-lg">
+                {{-- Todo: Create dynamic link component for dropdown --}}
+
+                <div>
+                    <a href="{{ route('auth.dashboard.settings') }}" class="inline-flex items-center w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100">
+                        <x-icon-settings class="h-6 w-6 mr-2"/>
+                        <span class="pt-1">{{ __('dashboard/navbar.item.profile_dropdown.settings') }}</span>
+                    </a>
+                </div>
+
+                <div>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="inline-flex items-center w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100">
+                            <x-icon-logout class="h-6 w-6 mr-2"/>
+                            <span class="pt-1">{{ __('dashboard/navbar.item.profile_dropdown.logout') }}</span>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

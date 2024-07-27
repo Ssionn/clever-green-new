@@ -2,27 +2,41 @@
 
 namespace App\Repositories;
 
+use App\Mail\NewUser;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
 
 class UserRepository
 {
     public function getAllUsersExceptCurrent()
     {
-        return User::where('id', '!=', auth()->id())->get();
+        return User::whereNot('id', auth()->id())
+            ->orderBy('name')
+            ->paginate(5);
     }
 
     public function createUser($name, $email, $roleId): void
     {
+        $randomPassword = Str::random(16);
+
         $user = User::create([
             'name' => $name,
             'email' => $email,
-            'password' => Hash::make('password'),
+            'password' => Hash::make($randomPassword),
         ]);
 
         $role = Role::findById($roleId);
 
         $user->assignRole($role->name);
+
+        $this->notifyNewUser($user, $randomPassword);
+    }
+
+    protected function notifyNewUser($user, $randomPassword): void
+    {
+        Mail::to($user->email)->send(new NewUser($user, $randomPassword));
     }
 }

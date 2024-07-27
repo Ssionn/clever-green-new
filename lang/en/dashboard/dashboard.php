@@ -10,6 +10,8 @@ return [
 
             'users' => 'Users',
 
+            'settings' => 'Settings',
+
         ],
 
     ],

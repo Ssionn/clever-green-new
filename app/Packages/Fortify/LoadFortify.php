@@ -27,4 +27,11 @@ class LoadFortify
             }
         });
     }
+
+    public static function verifyEmail(): void
+    {
+        Fortify::verifyEmailView(function () {
+            return view('auth.verify-email');
+        });
+    }
 }
